@@ -50,3 +50,4 @@ $string['confirmdeletefile'] = 'Are you sure you want to delete the file <strong
 $string['upload'] = 'Upload';
 $string['uploaderror'] = 'Error uploading recording.';
 $string['maxfilesreached'] = 'You already have the maximum number of recordings allowed for this assignment.';
+$string['onlineaudio:use'] = 'Can the user create assignments with the Online Audio submission plugin.';

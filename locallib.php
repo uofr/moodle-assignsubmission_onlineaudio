@@ -43,7 +43,22 @@ define('ASSIGN_FILEAREA_SUBMISSION_ONLINEAUDIO', 'submission_onlineaudio');
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class assign_submission_onlineaudio extends assign_submission_plugin {
+    
+    public function is_enabled() {
+        return $this->get_config('enabled') && $this->is_configurable();
+    }
 
+    public function is_configurable() {
+        $context = context_course::instance($this->assignment->get_course()->id);
+        if ($this->get_config('enabled')) {
+            return true;
+        }
+        if (!has_capability('assignsubmission/onlineaudio:use', $context)) {
+            return false;
+        }
+        return parent::is_configurable();
+    }
+    
     /**
      * Get the name of the file submission plugin
      * @return string
