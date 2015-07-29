@@ -51,3 +51,5 @@ $string['upload'] = 'Upload';
 $string['uploaderror'] = 'Error uploading recording.';
 $string['maxfilesreached'] = 'You have submitted the maximum number of recordings allowed for this assignment.';
 $string['onlineaudio:use'] = 'Can the user create assignments with the Online Audio submission plugin.';
+
+$string['howtouse'] = 'To create an audio recording, you must first allow access to your microphone. If you are using Google Chrome, you may need to allow Chrome to access your microphone first.</p><p>Press the record button to begin. Keep an eye on the level indicator to ensure your recording isn\'t too quiet or too loud. Once you are finished recording, press the stop button. Enter a name for the file once the text area appears and then click save. Once the recording has been converted, you will be prompted to upload the submission. Press upload to store the recording. Once the page reloads after the recording is uploaded, press the "Save changes" button to complete your submission.';

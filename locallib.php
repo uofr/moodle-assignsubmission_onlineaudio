@@ -297,6 +297,24 @@ class assign_submission_onlineaudio extends assign_submission_plugin {
                         </object>
                         <!--<![endif]-->
                 </object></div>';
+                
+                /*
+                
+                <div class="mod-bootstrapelements-toggle" style="clear: both; margin-top: 1.5em"><div class="panel-heading"><h4 class="panel-title" style="display: inline-block"><a data-toggle="collapse" class="accordion-toggle collapsed" href="#bootstrapelements3"><i class="fa fa-info-circle"></i> Using the audio recorder</a></h4></div><div id="bootstrapelements3" class="panel-collapse collapse"><div class="panel-body"><div class="no-overflow"><p>'.get_string('howtouse', 'assignsubmission_onlineaudio').'</p></div></div></div></div>
+                
+                */
+                
+                /*
+                
+                <fieldset class="clearfix collapsible collapsed" id="id_howto">
+                		<legend class="ftoggler"><a href="#" class="fheader" role="button" aria-controls="id_howto" aria-expanded="false">Using the audio recorder</a></legend>
+                		<div class="fcontainer clearfix">
+		                
+                		</div></fieldset>
+                
+                */
+                
+                
             $mform->addElement('html', $html);
         } else {
             $mform->addElement('html', '<p>'.get_string('maxfilesreached', 'assignsubmission_onlineaudio').'</p>');
