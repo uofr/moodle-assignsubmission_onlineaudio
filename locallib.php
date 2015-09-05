@@ -282,9 +282,34 @@ class assign_submission_onlineaudio extends assign_submission_plugin {
             $html = '<script type="text/javascript" src="submission/onlineaudio/assets/swfobject.js"></script>
                 <script type="text/javascript">
                 swfobject.registerObject("onlineaudiorecorder", "10.1.0", "submission/onlineaudio/assets/expressInstall.swf");
+                
+                $( document ).ready(function() {
+                    //$(\'#id_submitbutton\').prop(\'disabled\',true);
+                    //console.log(\'submit-button:\'+$(\'#id_submitbutton\').prop(\'disabled\'));
+                    //$(\'#id_submitbutton\').hide();
+                    
+                    $(\'#oar_help_container\').hide();
+                    
+                    $(\'#oar_help_toggler\').click(function(){
+                     $(\'#oar_help_container\').toggle();
+                     $(\'#id_onlineaudiorecorder_howto\').toggleClass(\'collapsed\');
+                     //$(\'#id_onlineaudiorecorder_howto\').toggleClass(\'collapsible\');
+                     
+                     return false;
+                    });
+                    
+                });
                 </script>';
 
-            $html .= '<div id="onlineaudiorecordersection" style="float:left">
+
+                
+                
+                        
+                        
+
+
+            $html .= '<div id="fitem_id_files_onlineaudiorecorder" class="fitem fitem_onlineaudiorecorder "><div class="fitemtitle"><label for="id_files_onlineaudiorecorder">Online Audio Recorder</label></div><div class="felement onlineaudiorecorder">
+                            <div id="onlineaudiorecordersection" style="float:left">
                 <object id="onlineaudiorecorder" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="215" height="138">
                         <param name="movie" value="'.$url.$flashvars.'" />
                         <!--[if !IE]>-->
@@ -296,23 +321,92 @@ class assign_submission_onlineaudio extends assign_submission_plugin {
                         <!--[if !IE]>-->
                         </object>
                         <!--<![endif]-->
-                </object></div>';
+                </object></div>
+            ';
                 
-                /*
                 
-                <div class="mod-bootstrapelements-toggle" style="clear: both; margin-top: 1.5em"><div class="panel-heading"><h4 class="panel-title" style="display: inline-block"><a data-toggle="collapse" class="accordion-toggle collapsed" href="#bootstrapelements3"><i class="fa fa-info-circle"></i> Using the audio recorder</a></h4></div><div id="bootstrapelements3" class="panel-collapse collapse"><div class="panel-body"><div class="no-overflow"><p>'.get_string('howtouse', 'assignsubmission_onlineaudio').'</p></div></div></div></div>
-                
+            /*
+                $html .= '<div class="mod-bootstrapelements-toggle" style="clear: both; margin-top: 1.5em"><div class="panel-heading"><h4 class="panel-title" style="display: inline-block"><a data-toggle="collapse" class="accordion-toggle collapsed" href="#bootstrapelements3"><i class="fa fa-info-circle"></i> Using the audio recorder</a></h4></div><div id="bootstrapelements3" class="panel-collapse collapse"><div class="panel-body"><div class="no-overflow">
+                    
+                    <p>To create an audio recording, you may need to allow your web browser to access to your microphone.</p>
+                    
+                    <p><img src="submission/onlineaudio/assets/img/allow_camera.png" width="389" height="159" alt="Allow Camera"></p>
+                    
+                    <p>You may also have to allow Flash to access your microphone.</p>
+                    
+                    <p><img src="submission/onlineaudio/assets/img/allow_flash.png" width="222" height="145" alt="Allow Flash"></p>
+                    
+                    <p>Press the record button to begin recording.</p> 
+                    
+                    <p><img src="submission/onlineaudio/assets/img/begin_recording.png" width="224" height="72" alt="Begin Recording"></p>
+                    
+                    <p>Keep an eye on the level indicator to ensure your recording isn\'t too quiet or too loud.</p>
+                    
+                    <p><img src="submission/onlineaudio/assets/img/audio_level.png" width="225" height="69" alt="Audio Level"></p>
+                     
+                    <p>Once you are finished recording, press the stop button.</p>
+                    
+                    <p><img src="submission/onlineaudio/assets/img/stop_recording.png" width="219" height="67" alt="Stop Recording"></p>
+                     
+                    <p>Enter a name for the file once the text area appears and then click save.</p>
+                    
+                    <p><img src="submission/onlineaudio/assets/img/enter_filename.png" width="222" height="117" alt="Enter Filename"></p>
+                     
+                    <p>Once the recording has been converted, you will be prompted to upload the submission. Press upload to store the recording.</p> 
+                    
+                    <p><img src="submission/onlineaudio/assets/img/ready_upload.png" width="223" height="117" alt="Ready Upload"></p>
+                    
+                    <p>Once the page reloads after the recording is uploaded, press the "Save changes" button to complete your submission.</p>
+                    <p><img src="submission/onlineaudio/assets/img/save_changes.png" width="331" height="159" alt="Save Changes"></p>
+                    
+                    </div></div></div></div>';
                 */
                 
-                /*
+                //<p>'.get_string('howtouse', 'assignsubmission_onlineaudio').'</p>
+                $html .= '<div style="clear: both; margin-top: 1.5em"><fieldset class="clearfix collapsible collapsed" id="id_onlineaudiorecorder_howto">
+                        <legend class="ftoggler"><a href="#" id="oar_help_toggler" class="fheader" role="button" aria-controls="id_onlineaudiorecorderhowto" aria-expanded="true">Using the Online Audio Recorder<img src="../../theme/image.php?theme=urcourses_clean&amp;component=core&amp;image=help" alt="Help with Completion tick boxes" class="iconhelp" style="vertical-align:text-top"></a></legend>
+                        <div class="fcontainer clearfix" id="oar_help_container">
+                                        
+                        <ul>
+                        
+                        <li><p>To create an audio recording, you may need to allow your web browser to access to your microphone.</p>
+                                                
+                                                <p><img src="submission/onlineaudio/assets/img/allow_camera.png" width="389" height="159" style="border: solid 1px #000" alt="Allow Camera"></p></li>
+                        
+                        <li><p>You may also have to allow Flash to access your microphone.</p>
+                                                
+                                                <p><img src="submission/onlineaudio/assets/img/allow_flash.png" width="222" height="145" alt="Allow Flash"></p>
+                                                </li>
+                        <li><p>Press the record button to begin recording.</p> 
+                                                
+                                                <p><img src="submission/onlineaudio/assets/img/begin_recording.png" width="224" height="72" alt="Begin Recording"></p>
+                                                </li>
+                        <li><p>Keep an eye on the level indicator to ensure your recording isn\'t too quiet or too loud.</p>
+                                                
+                                                <p><img src="submission/onlineaudio/assets/img/audio_level.png" width="225" height="69" alt="Audio Level"></p>
+                                                 </li>
+                        <li><p>Once you are finished recording, press the stop button.</p>
+                                                
+                                                <p><img src="submission/onlineaudio/assets/img/stop_recording.png" width="219" height="67" alt="Stop Recording"></p>
+                                                </li> 
+                        <li><p>Enter a name for the file once the text area appears and then click save.</p>
+                                                
+                                                <p><img src="submission/onlineaudio/assets/img/enter_filename.png" width="222" height="117" alt="Enter Filename"></p>
+                                                </li> 
+                        <li><p>Once the recording has been converted, you will be prompted to upload the submission. Press upload to store the recording.</p> 
+                                                
+                                                <p><img src="submission/onlineaudio/assets/img/ready_upload.png" width="223" height="117" alt="Ready Upload"></p>
+                                                </li>
+                        <li><p>Once the page reloads after the recording is uploaded, press the "Save changes" button to complete your submission.</p>
+                                                <p><img src="submission/onlineaudio/assets/img/save_changes.png" width="331" height="159" style="border: solid 1px #000" alt="Save Changes"></p>
+                                                </li>
+                        </ul>
+                                        
+                                        </div></fieldset></div>
+                        
+                        </div></div>';
                 
-                <fieldset class="clearfix collapsible collapsed" id="id_howto">
-                		<legend class="ftoggler"><a href="#" class="fheader" role="button" aria-controls="id_howto" aria-expanded="false">Using the audio recorder</a></legend>
-                		<div class="fcontainer clearfix">
-		                
-                		</div></fieldset>
                 
-                */
                 
                 
             $mform->addElement('html', $html);
