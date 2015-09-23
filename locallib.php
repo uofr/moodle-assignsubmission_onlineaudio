@@ -215,7 +215,8 @@ class assign_submission_onlineaudio extends assign_submission_plugin {
                 $filtered = format_text('<a href="'.$path.'" style="display:none;"> </a> ', $format = FORMAT_HTML, $options);
                 $filtered = preg_replace('~<a.+?</a>~','',$filtered);
                 // Add a real link after the dummy one, so that we get a proper download link no matter what
-                $output .= $filtered . '</span><a href="'.$path.'" >'.s($filename).'</a>';
+                //$output .= $filtered . '</span><a href="'.$path.'" >'.s($filename).'</a>';
+                $output .= $filtered . '</span><span>'.get_string('download').': <a href="'.$path.'" >'.s($filename).'</a> <small>('.$mimetype.')</small></span>';
                 if($allowdelete) {
                     $delurl  = "$CFG->wwwroot/mod/assign/submission/onlineaudio/delete.php?id={$this->assignment->get_course_module()->id}&amp;sid={$submissionid}&amp;path=$filepath&amp;file=$filename";//&amp;userid={$submission->userid} &amp;mode=$mode&amp;offset=$offset
 
